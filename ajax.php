@@ -1,5 +1,11 @@
 <?php 
 	date_default_timezone_set('Asia/Manila');
+	if($_POST['action']=="update_last"){
+		$id = $_REQUEST['uid'];
+		$con = mysqli_connect("localhost","root","","ci");
+		$update = mysqli_query($con, "UPDATE inventory_uid SET is_avail='4' WHERE id='$id'");
+	}
+
 	if($_POST['action']=="editSerial"){
 		$id = $_REQUEST['id'];
 		$serial = $_REQUEST['serial'];
@@ -340,7 +346,7 @@
 		$dude = substr($name, strpos($name, "UID") + 4);    
 		$uid = str_replace("-","",$dude);
 
-		$sql2 = "UPDATE inventory_uid SET is_avail='4' WHERE id='$uid'";
+		$sql2 = "UPDATE inventory_uid SET is_avail='5' WHERE id='$uid'";
 		$result = mysqli_query($con,$sql);
 		$results = mysqli_query($con,$sql1);
 		$resultss = mysqli_query($con,$sql2);

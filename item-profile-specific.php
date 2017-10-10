@@ -163,11 +163,15 @@
 					// Old Status Query
 					// $testquery = mysqli_query($con, "SELECT inventory.id, CONCAT(inventory.equipment_name, ' Serial Number ', CONCAT_WS('-', MID(inventory_uid.id, 1,2), MID(inventory_uid.id, 3,4))) AS name, CONCAT_WS('-', MID(inventory_uid.id, 1,2), MID(inventory_uid.id, 3,4)) AS uid, borrower_cart.status FROM inventory_uid INNER JOIN inventory ON inventory.id = inventory_uid.equipment_id INNER JOIN borrower_cart ON CONCAT(inventory.equipment_name, ' Serial Number ', CONCAT_WS('-', MID(inventory_uid.id, 1,2), MID(inventory_uid.id, 3,4))) = borrower_cart.equipment_name WHERE borrower_cart.status != 'On Hand' AND borrower_cart.equipment_name = '$combined'");
 					// $test = mysqli_fetch_assoc($testquery);
-					
-					echo '<td>';
-					echo '<a class="btn btn-primary btn-sm check" data-toggle="modal" data-target="#addtorentcart" data-id="'.$name.' UID '.$rows['uid'].'" data-price="'.$price.'" data-description="'.$description.'" data-login="'.$login_fullname.'">Reserve</a>&nbsp';
-					echo '<a class="btn btn-primary btn-sm" href="item-profile-uid.php?id='.$rows['uid'].'&itemid='.$id.'&serial='.$rows['serial'].'">Check</a>';
-					echo '</td>';
+					if($rows['is_avail']=='5') {
+						echo '<td><span class="label label-danger">Under Maintenance</span></td>';
+					} 
+					else {
+						echo '<td>';
+						echo '<a class="btn btn-primary btn-sm check" data-toggle="modal" data-target="#addtorentcart" data-id="'.$name.' UID '.$rows['uid'].'" data-price="'.$price.'" data-description="'.$description.'" data-login="'.$login_fullname.'">Reserve</a>&nbsp';
+						echo '<a class="btn btn-primary btn-sm" href="item-profile-uid.php?id='.$rows['uid'].'&itemid='.$id.'&serial='.$rows['serial'].'">Check</a>';
+						echo '</td>'; 
+					}
 					echo '</tr>';
 				}
 				echo '</table>';

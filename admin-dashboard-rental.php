@@ -101,6 +101,13 @@
 						<h4>Return</h4>
 					</div></a>
 				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+					<a href="admin-rental-maintenance.php">
+					<div class="bordify">
+						<h3><span class="glyphicon glyphicon-plus"></span></h3>
+						<h4>Maintenance</h4>
+					</div></a>
+				</div>
 			</div>
 		</div>
 		<div class="row" style="margin-top: 10px;">
