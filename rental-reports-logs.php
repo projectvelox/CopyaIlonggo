@@ -58,8 +58,8 @@
 			$result = mysqli_query($con,"SELECT * FROM borrower_cart WHERE status='Returned'");
 				while($row = mysqli_fetch_array($result))
 				{
-					$date_borrowed = date('M j Y', strtotime($row['date_borrowed']));
-					$date_due = date('M j Y', strtotime($row['date_due']));
+					$date_borrowed = date('M j, Y', strtotime($row['date_borrowed']));
+					$date_due = date('M j, Y', strtotime($row['date_due']));
 					$i++;
 					echo "<tr>";
 					echo "<td>" . $i . ".</td>";
@@ -68,7 +68,7 @@
 					echo "<td>" . $row['contact'] . "</td>";
 					echo "<td>" . $date_borrowed . "</td>";
 					echo "<td>" . $date_due . "</td>";
-					echo "<td>‎₱" . $row['total_price'] . "</td>";
+					echo "<td>‎₱ " . $row['total_price'] . "</td>";
 					echo "</tr>";
 				}
 				echo "</table>";
