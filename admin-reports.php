@@ -125,17 +125,9 @@
 				//OTHER TAB
 				echo '<div id="others" class="tab-pane fade">';
 				echo '<div class="row" style="margin: 0px 20px">';
-				//returned-reports
-				echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
-				echo '<a href="#" target="_blank">';
-				echo '<div class="bordify">';
-				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
-				echo '<h5>Returned Reports</h5>';
-				echo '</div></a>';
-				echo '</div>';
 				//rental-logs
 				echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
-				echo '<a href="#" target="_blank">';
+				echo '<a href="rental-reports-logs.php" target="_blank">';
 				echo '<div class="bordify">';
 				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
 				echo '<h5>Rental Logs</h5>';
@@ -143,7 +135,7 @@
 				echo '</div>';
 				//unreturned-reports
 				echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
-				echo '<a href="#" target="_blank">';
+				echo '<a href="rental-reports-unreturned.php" target="_blank">';
 				echo '<div class="bordify">';
 				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
 				echo '<h5>Unreturned Reports</h5>';
@@ -151,7 +143,7 @@
 				echo '</div>';
 				//due-this-month
 				echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
-				echo '<a href="#" target="_blank">';
+				echo '<a href="rental-reports-nearby.php" target="_blank">';
 				echo '<div class="bordify">';
 				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
 				echo '<h5>Due this Month</h5>';
