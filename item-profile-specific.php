@@ -26,7 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="css/carousel.css">
 	<link rel="icon" href="img/logo.png" type="image/x-icon" />
 </head>
-<body onload="autoupdate()">
+<body>
 	<style type="text/css"> .breadcrumb { margin-left: 0px; margin-right: 0px; } .bordify { margin-left: 0px; } </style>
 	<!-- Success -->
 	<div id="success" class="modal fade" role="dialog">
@@ -238,7 +238,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 
-		function autoupdate(){
+		/*function autoupdate(){
 			var id = "<?= $id; ?>"; 
 			$.ajax({type:"POST",url:"ajax.php",
 			data: {
@@ -248,7 +248,7 @@
 		    }).then(function(data) { 
 		    	if(data == "1") { location.reload(); } 
 		    }); 
-		}
+		}*/
 
 		$(document).on("click", ".check", function() { 
 			var name = $(this).data('id');
