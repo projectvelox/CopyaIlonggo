@@ -98,6 +98,7 @@
 				$con = mysqli_connect("localhost","root","","ci");
 				$result = mysqli_query($con,"SELECT YEAR(date_borrowed) AS yearname FROM borrower_cart WHERE status='Returned' GROUP BY year(date_borrowed)");
 				echo '<ul class="nav nav-tabs">';
+				echo '<li><a data-toggle="tab" href="#others">Others</a></li>';
 				foreach($result as $row) {
 				  echo '<li><a data-toggle="tab" href="#'.$row['yearname'].'">'.$row['yearname'].'</a></li>';
 				}
@@ -121,6 +122,47 @@
 					echo '</div>';
 					echo '</div>';
 				}
+				//OTHER TAB
+				echo '<div id="others" class="tab-pane fade">';
+				echo '<div class="row" style="margin: 0px 20px">';
+				//returned-reports
+				echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
+				echo '<a href="#" target="_blank">';
+				echo '<div class="bordify">';
+				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
+				echo '<h5>Returned Reports</h5>';
+				echo '</div></a>';
+				echo '</div>';
+				//rental-logs
+				echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
+				echo '<a href="#" target="_blank">';
+				echo '<div class="bordify">';
+				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
+				echo '<h5>Rental Logs</h5>';
+				echo '</div></a>';
+				echo '</div>';
+				//unreturned-reports
+				echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
+				echo '<a href="#" target="_blank">';
+				echo '<div class="bordify">';
+				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
+				echo '<h5>Unreturned Reports</h5>';
+				echo '</div></a>';
+				echo '</div>';
+				//due-this-month
+				echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
+				echo '<a href="#" target="_blank">';
+				echo '<div class="bordify">';
+				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
+				echo '<h5>Due this Month</h5>';
+				echo '</div></a>';
+				echo '</div>';
+
+
+				echo '</div>';
+				echo '</div>';
+				//END OF OTHER TAB
+
 				echo '</div>';
 			?>
 			</div>
