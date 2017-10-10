@@ -18,7 +18,29 @@
 	<link rel="icon" href="img/logo.png" type="image/x-icon" />
 </head>
 <body>
+	<!-- Modal -->
+	<div id="testList" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
 
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title" id="header-name"></h4>
+	      </div>
+	      <div class="modal-body" style="height: auto; max-height: 300px; overflow-y: scroll; overflow-x: hidden;">
+	        <form class="form-horizontal wrapper">
+	        	
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-sm btn-primary savenow">Save Now</button>
+	        <a href="item-management.php" class="btn btn-sm btn-primary">View More</a>
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
 	<!-- The Navigation Bar -->
 	<nav class="navbar navbar-inverse navbar-fixed-top"> 
 	  <div class="container">
@@ -222,12 +244,59 @@
 				action:"rectock_item"
 			},
 		    }).then(function(data) { 
-		    	//alert(data);
-	    		$('#success').modal({
-		        show: 'true'
-			    });
-		    });
-		});
+		    	$('#restockModal').modal('hide');
+	    		String.prototype.insert = function(what, index) { return index > 0 ? this.replace(new RegExp('.{' + index + '}'), '$&' + what) : what + this; };
+
+				    	<?php 
+					    	$con = mysqli_connect("localhost","root","","ci");	
+							$sql = "SELECT id FROM inventory_uid ORDER BY id DESC LIMIT 1";
+							$result = mysqli_query($con,$sql);
+							$row=mysqli_fetch_assoc($result);
+							$uid=$row['id'];
+					    ?>
+				    	var i=0;
+				    	var uid = <?=$uid?>;
+				    	$('#testList').modal({ show: 'true'})
+				    	document.getElementById('header-name').innerHTML = "Product: " + product;
+					    while(qty>i) {
+					    	i++;
+					    	uid++;
+					    	var field = '<div class="form-group"><label class="control-label col-sm-4"> UID ' + uid.toString().insert("-", 2) +'</label><div class="col-sm-8"><input type="text" class="form-control" id="uid'+i+'" placeholder="Enter the serial number for this."></div></div>';
+					    	$('.wrapper').append(field);
+					    }
+
+					    $(document).on("click", ".savenow", function() { 
+					   		<?php 
+						    	$con = mysqli_connect("localhost","root","","ci");	
+								$sql = "SELECT id FROM inventory ORDER BY id DESC LIMIT 1";
+								$result = mysqli_query($con,$sql);
+								$row=mysqli_fetch_assoc($result);
+								$id=$row['id'];
+						    ?>
+					   		var i=0;
+					   		var equipment_id = <?=$id?> + 1;
+					   		var uid = <?=$uid?>;
+					   		while(qty > i) {
+					   			i++;
+					   			uid++;
+					   			var serial = document.getElementById('uid'+i).value;
+					   		
+					   			$.ajax({type:"POST",url:"ajax.php",
+								data: {
+									uid:uid,
+									serial:serial,
+									equipment_id: equipment_id,
+									action:"testMultipleSaves"
+								},
+							    }).then(function(data) {
+							    	$('#testList').modal("hide"); 
+						    		$('#success').modal("show"); 
+							    });
+					   		}
+					    });
+				    
+			    	}); 
+				});
 	});
 
 	$(document).on("click", ".modal-closer", function() { 
