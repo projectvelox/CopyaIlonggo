@@ -234,7 +234,7 @@
 				    while(qty>i) {
 				    	i++;
 				    	uid++;
-				    	var field = '<div class="form-group"><label class="control-label col-sm-4"> UID ' + uid.toString().insert("-", 2) +'</label><div class="col-sm-8"><input type="text" class="form-control" id="uid'+i+'" required placeholder="Enter the serial number for this."></div></div>';
+				    	var field = '<div class="form-group"><label class="control-label col-sm-4"> UID ' + uid.toString().insert("-", 2) +'</label><div class="col-sm-8"><input type="text" class="form-control" id="uid'+i+'" placeholder="Enter the serial number for this."></div></div>';
 				    	$('.wrapper').append(field);
 				    }
 
