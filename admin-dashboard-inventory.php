@@ -32,7 +32,7 @@
 	        <?php
 	        	$i = 0;
 				$con = mysqli_connect("localhost","root","","ci");
-				$result = mysqli_query($con,"SELECT * FROM inventory WHERE type='Inventory' AND  qty < 3 ORDER BY id DESC");
+				$result = mysqli_query($con,"SELECT * FROM inventory WHERE type='Inventory' AND  qty <= warning ORDER BY id DESC");
 					while($row = mysqli_fetch_array($result))
 					{
 						$i++;

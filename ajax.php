@@ -198,6 +198,7 @@
 		$product = $_POST['product'];
 		$description = $_POST['description'];
 		$quantity = $_POST['qty'];
+		$warning = $_POST['warning'];
 		$price = $_POST['price'];
 		$type_1 = $_POST['type_1'];
 		$con = mysqli_connect("localhost","root","","ci");	
@@ -205,7 +206,7 @@
 		$result = mysqli_query($con,$sql);
 		$row=mysqli_fetch_assoc($result);
 		if($row['equipment_name'] != $product){
-			$sql = "INSERT INTO inventory(equipment_name, description, qty, price, type, type_1, category) VALUES ('$product', '$description', '$quantity', '$price', 'Inventory', '$type_1', 'Machine')";
+			$sql = "INSERT INTO inventory(equipment_name, description, qty, warning, price, type, type_1, category) VALUES ('$product', '$description', '$quantity', '$warning' , '$price', 'Inventory', '$type_1', 'Machine')";
 			$result = mysqli_query($con,$sql);
 			
 			//TEST TEST TEST TEST TEST

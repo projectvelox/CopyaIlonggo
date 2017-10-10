@@ -139,6 +139,12 @@
 					    </div>
 					</div>
 					<div class="form-group">
+					    <label class="control-label col-sm-2" for="warning">Warning Level:</label>
+					    <div class="col-sm-10">
+					      <input type="number" class="form-control" id="warning" required placeholder="Enter the quantity it needs to reach before sending out a warning">
+					    </div>
+					</div>
+					<div class="form-group">
 					    <label class="control-label col-sm-2" for="price">Price:</label>
 					    <div class="col-sm-10">
 					      <input type="number" class="form-control" id="price" required placeholder="Set the price of the item">
@@ -200,6 +206,7 @@
 		var product = document.getElementById('product').value;
 		var description = document.getElementById('description').value;
 		var qty = document.getElementById('quantity').value;
+		var warning = document.getElementById('warning').value;
 		var price = document.getElementById('price').value;
 		var type_1 = document.getElementById('type_1').value;
 		$.ajax({type:"POST",url:"ajax.php",
@@ -207,6 +214,7 @@
 				product:product,
 				description:description,
 				qty:qty,
+				warning:warning,
 				price:price,
 				type_1:type_1,
 				action:"add_inventory_item"
