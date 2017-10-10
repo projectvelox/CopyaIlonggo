@@ -7,6 +7,13 @@
 		$update = mysqli_query($con, "UPDATE inventory_uid SET serial='$serial' WHERE id='$id'");
 	}
 
+	if($_POST['action']=="editWarning"){
+		$id = $_REQUEST['id'];
+		$warning = $_REQUEST['warning'];
+		$con = mysqli_connect("localhost","root","","ci");
+		$update = mysqli_query($con, "UPDATE inventory SET warning='$warning' WHERE id='$id'");
+	}
+
 	if($_POST['action']=="testMultipleSaves"){
 		$con = mysqli_connect("localhost","root","","ci");
 		$uid = $_REQUEST['uid'];

@@ -104,6 +104,13 @@
 					</div></a>
 				</div>
 				<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+					<a href="admin-inventory-warning.php">
+					<div class="bordify">
+						<h3><span class="glyphicon glyphicon-edit"></span></h3>
+						<h4>Edit Warning Level</h4>
+					</div></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
 					<a href="admin-inventory-restock.php">
 					<div class="bordify">
 						<h3><span class="glyphicon glyphicon-edit"></span></h3>
