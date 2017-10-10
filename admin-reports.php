@@ -130,7 +130,7 @@
 				echo '<a href="rental-reports-logs.php" target="_blank">';
 				echo '<div class="bordify">';
 				echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
-				echo '<h5>Rental Logs</h5>';
+				echo '<h5>Completed Transactions</h5>';
 				echo '</div></a>';
 				echo '</div>';
 				//unreturned-reports
