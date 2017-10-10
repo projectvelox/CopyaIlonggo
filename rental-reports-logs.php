@@ -11,7 +11,7 @@
 	<link rel="icon" href="img/logo.png" type="image/x-icon" />
 </head>
 <body onload="start()">
-<h3>Completed Rental Transactions - General</h3>
+<h3>Completed Rental Transactions - Summarized</h3>
 <div class="table-responsive"> 
 	<table class="table table-hover">
 		<tr>
