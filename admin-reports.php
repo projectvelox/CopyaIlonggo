@@ -185,7 +185,8 @@
 					$result = mysqli_query($con,"SELECT YEAR(transaction_date) AS yearname FROM user_cart WHERE status='Claimed' GROUP BY year(transaction_date)");
 					echo '<ul class="nav nav-tabs">';
 					foreach($result as $row) {
-					  echo '<li><a data-toggle="tab" href="#'.$row['yearname'].'x">'.$row['yearname'].'</a></li>';
+						echo '<li><a data-toggle="tab" href="#other">Others</a></li>';
+					 	echo '<li><a data-toggle="tab" href="#'.$row['yearname'].'x">'.$row['yearname'].'</a></li>';
 					}
 					echo '</ul>';
 					echo '<div class="tab-content">';
@@ -207,6 +208,22 @@
 						echo '</div>';
 						echo '</div>';
 					}
+
+					//OTHER TAB
+					echo '<div id="other" class="tab-pane fade">';
+					echo '<div class="row" style="margin: 0px 20px">';
+					//sales-logs
+					echo '<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2" style="margin-top: 20px;">';
+					echo '<a href="sales-reports-logs.php" target="_blank">';
+					echo '<div class="bordify">';
+					echo '<h3><span class="glyphicon glyphicon-list-alt"></span></h3>';
+					echo '<h5>Completed Transactions</h5>';
+					echo '</div></a>';
+					echo '</div>';
+
+					echo '</div>';
+					echo '</div>';
+					//END OF OTHER TAB
 					echo '</div>';
 				?>
 			</div>
